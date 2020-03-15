@@ -75,7 +75,49 @@ h1,h2,h3,h4,h5,h6 {
 	display: block;
 	margin-left : 0.5rem;
 	margin-right : 0.5rem;
+	padding-top: 0.1rem;
 }
 .footer-right {
   float: right;
+}
+
+.mainpage {
+	display: block;
+	padding-right: 1rem;
+	padding-left: 1rem;
+}
+
+.text-center {
+	text-align: center;
+	font-weight: 400;
+	font-size: 150%;
+}
+
+.row {
+	display: flex;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.col {
+	display: block;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.num {
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+
+.main-text {
+	display: block;
+	padding: .2rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	margin-bottom: 2rem;
 }
