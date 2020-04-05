@@ -1,18 +1,23 @@
-*,*::after, *::before {
-	box-sizing: inherit;
-}
-
 html {
 	font-family: "Segoe UI";
-	line-height:1.3;
+	line-height: 1.3;
 	box-sizing: border-box;
+}
+
+*,*::after, *::before {
+	box-sizing: inherit;
 }
 
 h1,h2,h3,h4,h5,h6 {
 	margin-bottom:.7rem;
 }
 
-.header {
+.content {
+	min-height: calc(100vh - 100px);
+}
+
+/*** header ***/
+header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -47,7 +52,7 @@ h1,h2,h3,h4,h5,h6 {
 	line-height:1.5;
 	border-radius:.3rem;
 	color:#37bf4b;
-	border-color:#37bf4b;
+	border-color:#37bf4b!important;
 	text-decoration: none;
 }
 .btn:hover {
@@ -72,20 +77,20 @@ h1,h2,h3,h4,h5,h6 {
 	text-decoration: underline;
 }
 
-.text-muted {
-	color:#6c757d;
-}
-
+/*** footer ***/
 .footer-text {
 	display: block;
 	margin-left : 0.5rem;
 	margin-right : 0.5rem;
 	padding-top: 0.1rem;
+	padding-bottom: 0.1rem;
+	color:#6c757d;
 }
 .footer-right {
   float: right;
 }
 
+/*** main content ***/
 .mainpage {
 	display: inline-block;
 	margin-left: auto;
@@ -129,13 +134,13 @@ h1,h2,h3,h4,h5,h6 {
 
 .grid-text {
 	display: block;
-	padding: .2rem;
-	padding-right: 1rem;
-	padding-left: 1rem;
+	padding: 0 .2rem;
 	margin-bottom: 2rem;
 }
+
+/*** banner ***/
 .banner {
-	background: url(img/banner.jpg) center repeat;
+	background: url(../img/banner.jpg) center center;
 	height: 330px;
 }
 
@@ -146,9 +151,131 @@ h1,h2,h3,h4,h5,h6 {
 	padding-top: 2.5rem;
 	max-width: 45%;
 }
+
 .banner-text-small {
 	color: #fff;
 	font-size: 130%;
 	padding-left: 1rem;
 	max-width: 45%;
+}
+
+/*** sign-in ***/
+#gray {
+	display: none;
+	background-color: rgba(1,1,1, 0.75);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 100;
+}
+
+#window {
+	display: none;
+	width: 350px;
+	margin: 40px auto;
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 15px;
+	z-index: 150;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.sign-in-form {
+	margin: -15px auto 20px auto;
+	text-align: center;
+}
+
+.registration {
+	width: 450px;
+	margin: 40px auto;
+}
+.reg-form {
+	margin: -15px auto 20px auto;
+	text-align: center;
+}
+
+.input {
+	width: 87%;
+	padding: 10px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}
+.close {
+	margin: 15px 0 -15px 320px;
+	cursor: pointer;
+}
+
+.close:hover {
+	margin: 16px 0 -16px 319px;
+	border: 1px solid lightgray;
+}
+
+.fadein {
+  animation: showBG .2s linear forwards;
+}
+
+@keyframes showBG {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeout {
+  animation: closeBG .2s linear forwards;
+}
+
+@keyframes closeBG {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.scalein {
+  animation: showForm .25s linear forwards;
+}
+
+@keyframes showForm {
+  0% {
+    transform: scale(2);
+		opacity: 0;
+  }
+	10% {
+		transform: scale(1.1);
+		opacity: 0.1;
+	}
+  100% {
+    transform: scale(1);
+		opacity: 1;
+  }
+}
+
+.scaleout {
+  animation: closeForm .1s linear forwards;
+}
+
+@keyframes closeForm {
+  0% {
+  	transform: scale(1);
+		opacity: 1;
+  }
+	25% {
+		opacity: .8;
+	}
+  100% {
+    transform: scale(.8);
+		opacity: 0;
+  }
 }
