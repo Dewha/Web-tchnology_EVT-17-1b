@@ -20,16 +20,25 @@
 				<a class="text-dark" href="#">Возможности</a>
 				<a class="text-dark" href="#">Авторы</a>
 			</nav>
+					<?php
+			if($_COOKIE['user'] == ''):									# КУКИ, режим после авторизации и до, куки хранятся 24 часа, смотреть auth.php;
+					?>
 				<a class="btn" onclick="show_popup()">Войти</a>
+					<?php else: ?>
+				<a class="btn" href="contropanel.html";">Аккаунт</a> 
+				    <!-- <- тут стоит спец спимвол, пустой - ALT+255 -->
+				<a class="btn" href="php_script/exit.php";">Выйти</a>
+					<?php endif; ?>
 		</header>
 
 		<!--sign-in-->
+
 		<div id="gray" onclick="close_popup()"></div>
 		<div id="window">
 			<img src="img\close.png" class="close" onclick="close_popup()">
 			<div class="sign-in-form">
 				<h2>Вход</h2>
-				<form action="index.html" name="f1">
+				<form action="php_script/auth.php" method="POST">
 					<input type="email" placeholder="E-mail" name="email" class="input">
 					<input type="password" placeholder="Пароль" name="password" class="input">
 					<input type="submit" name="sign-in" value="Войти" class="btn input">
@@ -37,6 +46,7 @@
 				</form>
 			</div>
 		</div>
+		
 
 		<!--Banner-->
 		<div class="banner">

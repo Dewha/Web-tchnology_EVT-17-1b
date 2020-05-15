@@ -24,13 +24,13 @@
         <div class="registration">
           <div class="reg-form">
             <h2>Регистрация</h2>
-            <form action="registration.html" name="f2">
-              <input type="text" placeholder="Имя" name="name" class="input">
-              <input type="text" placeholder="Фамилия" name="second_name" class="input">
-              <input type="email" placeholder="E-mail" name="email" class="input">
-              <input type="text" placeholder="Организация" name="organization" class="input">
-              <input type="password" placeholder="Пароль" name="pass1" class="input">
-              <input type="password" placeholder="Повторите пароль" name="pass2" class="input">
+            <form action="php_script/reg.php" method="POST">
+              <input type="text" placeholder="Имя" name="name" class="input" id="name">
+              <input type="text" placeholder="Фамилия" name="second_name" class="input" id="second_name">
+              <input type="email" placeholder="E-mail" name="email" class="input" id= 'email'>
+              <input type="text" placeholder="Организация" name="organization" class="input" id='organization'>
+              <input type="password" placeholder="Пароль" name="pass1" class="input" id="pass1">
+              <input type="password" placeholder="Повторите пароль" name="pass2" class="input" id='pass2'>
               <input type="submit" name="registation" value="Зарегистрироваться" class="btn input">
             </form>
           </div>
