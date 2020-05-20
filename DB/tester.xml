@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.0.2
+- https://www.phpmyadmin.net
+-
+- Хост: 127.0.0.1:3306
+- Время создания: Май 20 2020 г., 21:39
+- Версия сервера: 8.0.19
+- Версия PHP: 7.1.33
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="tester" collation="utf8mb4_0900_ai_ci" charset="utf8mb4">
+            <pma:table name="answer">
+                CREATE TABLE `answer` (
+                  `id` int NOT NULL AUTO_INCREMENT,
+                  `question_id` int NOT NULL,
+                  `answer` varchar(50) NOT NULL,
+                  `correct` bit(1) NOT NULL DEFAULT b'0',
+                  PRIMARY KEY (`id`),
+                  KEY `question_id` (`question_id`),
+                  CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="question">
+                CREATE TABLE `question` (
+                  `id` int NOT NULL AUTO_INCREMENT,
+                  `test_id` int NOT NULL,
+                  `name` varchar(50) NOT NULL,
+                  `description` varchar(255) DEFAULT NULL,
+                  `weight` int NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `test_id` (`test_id`),
+                  CONSTRAINT `question_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="student">
+                CREATE TABLE `student` (
+                  `id` int NOT NULL AUTO_INCREMENT,
+                  `user_id` int NOT NULL,
+                  `team_id` int DEFAULT NULL,
+                  `email` varchar(50) NOT NULL,
+                  `pass` varchar(50) NOT NULL,
+                  `name` varchar(50) NOT NULL,
+                  `second_name` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `email` (`email`),
+                  KEY `user_id` (`user_id`),
+                  KEY `team_id` (`team_id`),
+                  CONSTRAINT `student_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `student_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="team">
+                CREATE TABLE `team` (
+                  `id` int NOT NULL AUTO_INCREMENT,
+                  `user_id` int NOT NULL,
+                  `name` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `user_id` (`user_id`),
+                  CONSTRAINT `team_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="test">
+                CREATE TABLE `test` (
+                  `id` int NOT NULL AUTO_INCREMENT,
+                  `user_id` int NOT NULL,
+                  `name` varchar(50) NOT NULL,
+                  `description` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `user_id` (`user_id`),
+                  CONSTRAINT `test_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` int NOT NULL AUTO_INCREMENT,
+                  `name` varchar(30) NOT NULL,
+                  `second_name` varchar(30) NOT NULL,
+                  `email` varchar(30) NOT NULL,
+                  `organization` varchar(50) NOT NULL,
+                  `pass` varchar(32) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `email` (`email`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - База данных: 'tester'
+    -->
+    <database name="tester">
+        <!-- Таблица answer -->
+        <table name="answer">
+            <column name="id">22</column>
+            <column name="question_id">22</column>
+            <column name="answer">ответ1</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">23</column>
+            <column name="question_id">22</column>
+            <column name="answer">ответ2</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">24</column>
+            <column name="question_id">22</column>
+            <column name="answer">ответ3</column>
+            <column name="correct">1</column>
+        </table>
+        <table name="answer">
+            <column name="id">26</column>
+            <column name="question_id">23</column>
+            <column name="answer">ответ1</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">27</column>
+            <column name="question_id">23</column>
+            <column name="answer">ответ2</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">28</column>
+            <column name="question_id">23</column>
+            <column name="answer">ответ3</column>
+            <column name="correct">1</column>
+        </table>
+        <table name="answer">
+            <column name="id">29</column>
+            <column name="question_id">38</column>
+            <column name="answer">ответ1</column>
+            <column name="correct">1</column>
+        </table>
+        <table name="answer">
+            <column name="id">30</column>
+            <column name="question_id">38</column>
+            <column name="answer">новый ответ</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">31</column>
+            <column name="question_id">38</column>
+            <column name="answer">новый ответ 2</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">35</column>
+            <column name="question_id">26</column>
+            <column name="answer">ответ1</column>
+            <column name="correct">1</column>
+        </table>
+        <table name="answer">
+            <column name="id">37</column>
+            <column name="question_id">26</column>
+            <column name="answer">ответ2</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">38</column>
+            <column name="question_id">39</column>
+            <column name="answer">новый ответ</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">39</column>
+            <column name="question_id">39</column>
+            <column name="answer">новый ответ 2</column>
+            <column name="correct">1</column>
+        </table>
+        <table name="answer">
+            <column name="id">40</column>
+            <column name="question_id">39</column>
+            <column name="answer">новый ответ 3</column>
+            <column name="correct">0</column>
+        </table>
+        <table name="answer">
+            <column name="id">41</column>
+            <column name="question_id">38</column>
+            <column name="answer">новый ответ 3</column>
+            <column name="correct">0</column>
+        </table>
+        <!-- Таблица question -->
+        <table name="question">
+            <column name="id">22</column>
+            <column name="test_id">1</column>
+            <column name="name">вопрос2</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">23</column>
+            <column name="test_id">1</column>
+            <column name="name">вопрос3</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">26</column>
+            <column name="test_id">2</column>
+            <column name="name">вопрос1</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">27</column>
+            <column name="test_id">2</column>
+            <column name="name">вопрос2</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">28</column>
+            <column name="test_id">2</column>
+            <column name="name">вопрос3</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">29</column>
+            <column name="test_id">2</column>
+            <column name="name">вопрос4</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">30</column>
+            <column name="test_id">2</column>
+            <column name="name">вопрос5</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">31</column>
+            <column name="test_id">7</column>
+            <column name="name">вопрос1</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">32</column>
+            <column name="test_id">7</column>
+            <column name="name">вопрос2</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">33</column>
+            <column name="test_id">7</column>
+            <column name="name">вопрос3</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">34</column>
+            <column name="test_id">7</column>
+            <column name="name">вопрос4</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">35</column>
+            <column name="test_id">7</column>
+            <column name="name">вопрос5</column>
+            <column name="description"></column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">36</column>
+            <column name="test_id">1</column>
+            <column name="name">новый вопрос</column>
+            <column name="description">12345</column>
+            <column name="weight">5</column>
+        </table>
+        <table name="question">
+            <column name="id">38</column>
+            <column name="test_id">1</column>
+            <column name="name">вопрос1</column>
+            <column name="description">qweqweqwe</column>
+            <column name="weight">1</column>
+        </table>
+        <table name="question">
+            <column name="id">39</column>
+            <column name="test_id">2</column>
+            <column name="name">новый вопрос1</column>
+            <column name="description">123</column>
+            <column name="weight">3</column>
+        </table>
+        <!-- Таблица student -->
+        <table name="student">
+            <column name="id">1</column>
+            <column name="user_id">2</column>
+            <column name="team_id">NULL</column>
+            <column name="email">qwe1@qwe.qwe</column>
+            <column name="pass">123</column>
+            <column name="name">user1</column>
+            <column name="second_name">userf1</column>
+        </table>
+        <table name="student">
+            <column name="id">2</column>
+            <column name="user_id">2</column>
+            <column name="team_id">NULL</column>
+            <column name="email">qwe2@qwe.qwe</column>
+            <column name="pass">123</column>
+            <column name="name">user2</column>
+            <column name="second_name">userf2</column>
+        </table>
+        <table name="student">
+            <column name="id">3</column>
+            <column name="user_id">2</column>
+            <column name="team_id">1</column>
+            <column name="email">qwe3@qwe.qwe</column>
+            <column name="pass">123</column>
+            <column name="name">user3</column>
+            <column name="second_name">userf3</column>
+        </table>
+        <table name="student">
+            <column name="id">9</column>
+            <column name="user_id">2</column>
+            <column name="team_id">5</column>
+            <column name="email">qqq@qqq.ru</column>
+            <column name="pass">b332ea47bb6a346fdb8de7f3846d33b1</column>
+            <column name="name">somename</column>
+            <column name="second_name">qwerty</column>
+        </table>
+        <table name="student">
+            <column name="id">11</column>
+            <column name="user_id">2</column>
+            <column name="team_id">2</column>
+            <column name="email">test@test.ru</column>
+            <column name="pass">926d61bbf37d585b3db5354f90288b69</column>
+            <column name="name">54321</column>
+            <column name="second_name">12345</column>
+        </table>
+        <!-- Таблица team -->
+        <table name="team">
+            <column name="id">1</column>
+            <column name="user_id">2</column>
+            <column name="name">группа1</column>
+        </table>
+        <table name="team">
+            <column name="id">2</column>
+            <column name="user_id">2</column>
+            <column name="name">группа2</column>
+        </table>
+        <table name="team">
+            <column name="id">5</column>
+            <column name="user_id">2</column>
+            <column name="name">группа 3</column>
+        </table>
+        <!-- Таблица test -->
+        <table name="test">
+            <column name="id">1</column>
+            <column name="user_id">2</column>
+            <column name="name">тест</column>
+            <column name="description">NULL</column>
+        </table>
+        <table name="test">
+            <column name="id">2</column>
+            <column name="user_id">2</column>
+            <column name="name">тест2</column>
+            <column name="description">NULL</column>
+        </table>
+        <table name="test">
+            <column name="id">7</column>
+            <column name="user_id">2</column>
+            <column name="name">newtest</column>
+            <column name="description">somedesc</column>
+        </table>
+        <table name="test">
+            <column name="id">12</column>
+            <column name="user_id">2</column>
+            <column name="name">anothertest</column>
+            <column name="description">123</column>
+        </table>
+        <!-- Таблица users -->
+        <table name="users">
+            <column name="id">1</column>
+            <column name="name">admin</column>
+            <column name="second_name">admin</column>
+            <column name="email">admin@admin.ru</column>
+            <column name="organization">admin</column>
+            <column name="pass">d3b5a0a4009096057e909b4a1743755a</column>
+        </table>
+        <table name="users">
+            <column name="id">2</column>
+            <column name="name">q</column>
+            <column name="second_name">q</column>
+            <column name="email">q@q.q</column>
+            <column name="organization">q</column>
+            <column name="pass">57bbec73efc6252af9c6750eeb32ddff</column>
+        </table>
+    </database>
+</pma_xml_export>

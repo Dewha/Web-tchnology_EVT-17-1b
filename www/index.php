@@ -14,9 +14,9 @@
 	<div class="content">
 		<!--header-->
 		<header>
-			<h1 class="logo" onclick="location.href='index.html'">Online Tester</h1>
+			<h1 class="logo" onclick="location.href='index.php'">Online Tester</h1>
 			<nav class="header-right">
-				<a class="text-dark" href="index.html">Главная</a>
+				<a class="text-dark" href="index.php">Главная</a>
 				<a class="text-dark" href="#">Возможности</a>
 				<a class="text-dark" href="#">Авторы</a>
 			</nav>
@@ -25,7 +25,7 @@
 					?>
 				<a class="btn" onclick="show_popup()">Войти</a>
 					<?php else: ?>
-				<a class="btn" href="contropanel.html";">Аккаунт</a> 
+				<a class="btn" href="controlpanel.php";">Кабинет</a>
 				    <!-- <- тут стоит спец спимвол, пустой - ALT+255 -->
 				<a class="btn" href="php_script/exit.php";">Выйти</a>
 					<?php endif; ?>
@@ -46,7 +46,7 @@
 				</form>
 			</div>
 		</div>
-		
+
 
 		<!--Banner-->
 		<div class="banner">

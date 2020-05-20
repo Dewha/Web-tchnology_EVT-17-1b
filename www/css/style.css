@@ -344,7 +344,7 @@ footer {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 250px;
+	height: 200px;
 	width: 230px;
 	border: 1px solid #d7dbdd;
 	border-radius: 5px;
@@ -374,29 +374,129 @@ footer {
 	height: 650px;
 }
 
-.cp-content{
+.cp-content {
+	display: flex;
+	flex-direction: column;
 	margin: 10px;
 	width: calc(100% - 20px);
-	height: calc(100% - 20px);
+	min-height: calc(100% - 20px);
 }
 
 #tests {
-	background-color: pink;
-	display: block;
+	display: flex;
 }
-#editor {
-	background-color: lightblue;
+#editor_newtest {
+	display: none;
+}
+#editor_edittest {
+	display: none;
+}
+#editor_editquestion {
+	display: none;
+}
+#editor_newquestion {
+	display: none;
+}
+#editor_newanswer {
+	display: none;
+}
+#editor_newuser {
+	display: none;
+}
+#editor_newgroup {
 	display: none;
 }
 #users {
-	background-color: lightgreen;
 	display: none;
 }
 #groups {
-	background-color: yellow;
 	display: none;
 }
 #results {
-	background-color: orange;
 	display: none;
+}
+
+.cp-content a {
+	display: inline-block;
+	color: black;
+}
+
+.cp-content-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	vertical-align: middle;
+	padding: 10px 8px;
+	margin-bottom: 30px;
+	font-size: 18px;
+	background-color: #fcfdfd;
+	box-shadow: 0 15px 15px -15px rgba(221, 221, 221, 1);
+}
+
+.cp-btn {
+	display: inline-block;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid;
+	padding: 3px 5px;
+	margin-top: -10px;
+	border-radius: 3px;
+	border-color: #d7dbdd;
+	text-decoration: none;
+}
+.cp-btn:hover {
+	background-color: #eef3f5;
+	border-color: #eef3f5;
+}
+.cp-btn:focus {
+	box-shadow:0 0 0 5px rgba(55,128,3,.5);
+}
+
+.cp-content-main {
+	height: 530px;
+	overflow-y: auto;
+}
+
+.cp-record {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	vertical-align: middle;
+	padding: 20px 30px 10px 30px;
+	margin: 10px;
+	font-size: 18px;
+	border-radius: 5px;
+	box-shadow: 0 5px 5px -5px rgba(200, 200, 200, 1), 0 -5px 5px -5px rgba(200, 200, 200, 1);
+}
+.cp-record-text {
+	margin-top: -5px;
+}
+
+.cp-newtest {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 30px 10px 30px;
+	margin: 10px;
+	font-size: 18px;
+	border-radius: 5px;
+	box-shadow: 0 5px 5px -5px rgba(200, 200, 200, 1), 0 -5px 5px -5px rgba(200, 200, 200, 1);
+}
+
+.cp-newtest .input {
+	width: 100%;
+}
+
+.cp-newtest .btn {
+	color: black;
+	background-color: #fcfdfd;
+	border-color: #d7dbdd;
+}
+
+.label-checkbox {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	font-size: 16px;
 }
