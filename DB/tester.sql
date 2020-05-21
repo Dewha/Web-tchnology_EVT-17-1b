@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 20 2020 г., 21:39
+-- Время создания: Май 21 2020 г., 20:27
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.1.33
 
@@ -93,6 +93,28 @@ INSERT INTO `question` (`id`, `test_id`, `name`, `description`, `weight`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `results`
+--
+
+CREATE TABLE `results` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `stud_id` int NOT NULL,
+  `question_id` int NOT NULL,
+  `points` int DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `results`
+--
+
+INSERT INTO `results` (`id`, `user_id`, `stud_id`, `question_id`, `points`) VALUES
+(5, 2, 9, 28, 1),
+(6, 2, 9, 29, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `student`
 --
 
@@ -115,7 +137,9 @@ INSERT INTO `student` (`id`, `user_id`, `team_id`, `email`, `pass`, `name`, `sec
 (2, 2, NULL, 'qwe2@qwe.qwe', '123', 'user2', 'userf2'),
 (3, 2, 1, 'qwe3@qwe.qwe', '123', 'user3', 'userf3'),
 (9, 2, 5, 'qqq@qqq.ru', 'b332ea47bb6a346fdb8de7f3846d33b1', 'somename', 'qwerty'),
-(11, 2, 2, 'test@test.ru', '926d61bbf37d585b3db5354f90288b69', '54321', '12345');
+(11, 2, 2, 'test@test.ru', '926d61bbf37d585b3db5354f90288b69', '54321', '12345'),
+(12, 2, 1, 'testuser@q.q', '926d61bbf37d585b3db5354f90288b69', 'testuser', 'qwertyuiop'),
+(13, 2, 5, 'a@a.a', '494fe7d5554a6c562db19122b99758b4', 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -203,6 +227,15 @@ ALTER TABLE `question`
   ADD KEY `test_id` (`test_id`);
 
 --
+-- Индексы таблицы `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `stud_id` (`stud_id`),
+  ADD KEY `question_id` (`question_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Индексы таблицы `student`
 --
 ALTER TABLE `student`
@@ -249,10 +282,16 @@ ALTER TABLE `question`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
+-- AUTO_INCREMENT для таблицы `results`
+--
+ALTER TABLE `results`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT для таблицы `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `team`
@@ -287,6 +326,14 @@ ALTER TABLE `answer`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `results`
+--
+ALTER TABLE `results`
+  ADD CONSTRAINT `results_ibfk_1` FOREIGN KEY (`stud_id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `results_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `results_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `student`

@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang='ru'>
 <head>
+	<!--кодировка-->
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width",initial-scale=1.0">
+	<!--размер страницы под устройства-->
+	<meta name="viewport" content="width=device-width",initial-scale="1.0">
 	<!--для браузера edge и ie-->
-	<meta http-equiv="X-UA-Compatitable content="ie=edge">
-	<link rel="stylesheet" href="css\style.css">
-    <title>Регистрация пользователя</title>
-  </head>
-  <body>
+	<meta http-equiv="X-UA-Compatitable content="ie="edge">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Online Tester</title>
+</head>
     <div class="content">
-      <!--header-->
-      <header>
-        <h1 class="logo">Online Tester</h1>
-        <nav class="header-right">
-          <a class="text-dark" href="index.html">Главная</a>
-          <a class="text-dark" href="#">Возможности</a>
-          <a class="text-dark" href="#">Авторы</a>
-        </nav>
-				<a class="btn" onclick="show_popup()">Войти</a>
-      </header>
+      <!--Header-->
+			<?php require 'header.php'; ?>
         <!-- registration -->
         <div class="registration">
           <div class="reg-form">
@@ -36,16 +29,7 @@
           </div>
         </div>
     </div>
-
-    <!--Footer-->
-    <footer>
-      <div class="footer-text">
-      <p class="footer-right">
-        <a class="text-dark" href="#top">Наверх</a>
-      </p>
-      <p>Система онлайн-тестирования Online Tester<br>
-        Лф ПНИПУ ЭВТ-17-1б 2020г.</p>
-      </div>
-    </footer>
+		<!--Footer-->
+		<?php require 'footer.php'; ?>
   </body>
 </html>

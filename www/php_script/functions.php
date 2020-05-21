@@ -94,4 +94,43 @@ function del_groups() {
   }
 }
 
+function get_current_result() {
+  global $mysql;
+  $sql = "SELECT `r`.`id`, `r`.`stud_id`, `q`.`name`, `q`.`weight` FROM `results` AS `r`
+    INNER JOIN `question` AS `q` ON `r`.`question_id` = `q`.`id`
+    INNER JOIN `student` AS `s` ON `r`.`stud_id` = `s`.`id`
+    LEFT JOIN team AS t ON `s`.`team_id`=`t`.`id`
+    WHERE `r`.`user_id`='{$_COOKIE["userid"]}' AND `r`.`stud_id`='{$_GET["edit_r"]}'";
+  $out = $mysql->query($sql) or die($mysql->error);
+  $res = DataSetToArray($out);
+  return $res;
+}
+
+function del_current_result() {
+  if (isset($_GET['del_cr'])) {
+    global $mysql;
+    $mysql->query("DELETE FROM `results` WHERE `id`={$_GET['del_cr']}");
+  }
+}
+
+function get_results() {
+  global $mysql;
+  $sql = "SELECT `r`.`stud_id`, `s`.`second_name`, `s`.`name`, `t`.`name` AS `team`, COUNT(`q`.`weight`) AS `points` FROM `results` AS `r`
+    INNER JOIN `question` AS `q` ON `r`.`question_id` = `q`.`id`
+    INNER JOIN `student` AS `s` ON `r`.`stud_id` = `s`.`id`
+    LEFT JOIN team AS t ON `s`.`team_id`=`t`.`id`
+    WHERE `r`.`user_id`='{$_COOKIE["userid"]}'
+    GROUP BY `r`.`stud_id`";
+  $out = $mysql->query($sql) or die($mysql->error);
+  $res = DataSetToArray($out);
+  return $res;
+}
+
+function del_results() {
+  if (isset($_GET['del_r'])) {
+    global $mysql;
+    $mysql->query("DELETE FROM `results` WHERE `stud_id`={$_GET['del_r']} AND `user_id`='{$_COOKIE["userid"]}'");
+  }
+}
+
 ?>

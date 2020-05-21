@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Хост: 127.0.0.1:3306
-- Время создания: Май 20 2020 г., 21:39
+- Время создания: Май 21 2020 г., 20:28
 - Версия сервера: 8.0.19
 - Версия PHP: 7.1.33
 -->
@@ -39,6 +39,22 @@
                   CONSTRAINT `question_ibfk_1` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
                 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
+            <pma:table name="results">
+                CREATE TABLE `results` (
+                  `id` int NOT NULL AUTO_INCREMENT,
+                  `user_id` int NOT NULL,
+                  `stud_id` int NOT NULL,
+                  `question_id` int NOT NULL,
+                  `points` int DEFAULT '0',
+                  PRIMARY KEY (`id`),
+                  KEY `stud_id` (`stud_id`),
+                  KEY `question_id` (`question_id`),
+                  KEY `user_id` (`user_id`),
+                  CONSTRAINT `results_ibfk_1` FOREIGN KEY (`stud_id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `results_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `results_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
             <pma:table name="student">
                 CREATE TABLE `student` (
                   `id` int NOT NULL AUTO_INCREMENT,
@@ -54,7 +70,7 @@
                   KEY `team_id` (`team_id`),
                   CONSTRAINT `student_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
                   CONSTRAINT `student_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-                ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
             </pma:table>
             <pma:table name="team">
                 CREATE TABLE `team` (
@@ -293,6 +309,21 @@
             <column name="description">123</column>
             <column name="weight">3</column>
         </table>
+        <!-- Таблица results -->
+        <table name="results">
+            <column name="id">5</column>
+            <column name="user_id">2</column>
+            <column name="stud_id">9</column>
+            <column name="question_id">28</column>
+            <column name="points">1</column>
+        </table>
+        <table name="results">
+            <column name="id">6</column>
+            <column name="user_id">2</column>
+            <column name="stud_id">9</column>
+            <column name="question_id">29</column>
+            <column name="points">1</column>
+        </table>
         <!-- Таблица student -->
         <table name="student">
             <column name="id">1</column>
@@ -338,6 +369,24 @@
             <column name="pass">926d61bbf37d585b3db5354f90288b69</column>
             <column name="name">54321</column>
             <column name="second_name">12345</column>
+        </table>
+        <table name="student">
+            <column name="id">12</column>
+            <column name="user_id">2</column>
+            <column name="team_id">1</column>
+            <column name="email">testuser@q.q</column>
+            <column name="pass">926d61bbf37d585b3db5354f90288b69</column>
+            <column name="name">testuser</column>
+            <column name="second_name">qwertyuiop</column>
+        </table>
+        <table name="student">
+            <column name="id">13</column>
+            <column name="user_id">2</column>
+            <column name="team_id">5</column>
+            <column name="email">a@a.a</column>
+            <column name="pass">494fe7d5554a6c562db19122b99758b4</column>
+            <column name="name">a</column>
+            <column name="second_name">a</column>
         </table>
         <!-- Таблица team -->
         <table name="team">

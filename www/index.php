@@ -4,35 +4,18 @@
 	<!--кодировка-->
 	<meta charset="UTF-8">
 	<!--размер страницы под устройства-->
-	<meta name="viewport" content="width=device-width",initial-scale=1.0">
+	<meta name="viewport" content="width=device-width",initial-scale="1.0">
 	<!--для браузера edge и ie-->
-	<meta http-equiv="X-UA-Compatitable content="ie=edge">
+	<meta http-equiv="X-UA-Compatitable content="ie="edge">
 	<link rel="stylesheet" href="css\style.css">
 	<title>Online Tester</title>
 </head>
 <body>
 	<div class="content">
 		<!--header-->
-		<header>
-			<h1 class="logo" onclick="location.href='index.php'">Online Tester</h1>
-			<nav class="header-right">
-				<a class="text-dark" href="index.php">Главная</a>
-				<a class="text-dark" href="#">Возможности</a>
-				<a class="text-dark" href="#">Авторы</a>
-			</nav>
-					<?php
-			if($_COOKIE['user'] == ''):									# КУКИ, режим после авторизации и до, куки хранятся 24 часа, смотреть auth.php;
-					?>
-				<a class="btn" onclick="show_popup()">Войти</a>
-					<?php else: ?>
-				<a class="btn" href="controlpanel.php";">Кабинет</a>
-				    <!-- <- тут стоит спец спимвол, пустой - ALT+255 -->
-				<a class="btn" href="php_script/exit.php";">Выйти</a>
-					<?php endif; ?>
-		</header>
+		<?php require 'header.php'; ?>
 
 		<!--sign-in-->
-
 		<div id="gray" onclick="close_popup()"></div>
 		<div id="window">
 			<img src="img\close.png" class="close" onclick="close_popup()">
@@ -42,7 +25,7 @@
 					<input type="email" placeholder="E-mail" name="email" class="input">
 					<input type="password" placeholder="Пароль" name="password" class="input">
 					<input type="submit" name="sign-in" value="Войти" class="btn input">
-					<a class="btn input" href="registration.html">Регистрация</a>
+					<a class="btn input" href="registration.php">Регистрация</a>
 				</form>
 			</div>
 		</div>
@@ -113,15 +96,7 @@
 		</div>
 	</div>
 	<!--Footer-->
-	<footer>
-		<div class="footer-text">
-		<p class="footer-right">
-			<a class="text-dark" href="#top">Наверх</a>
-		</p>
-		<p>Система онлайн-тестирования Online Tester<br>
-			Лф ПНИПУ ЭВТ-17-1б 2020г.</p>
-		</div>
-	</footer>
+	<?php require 'footer.php'; ?>
 	<script src="js\main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <?php
  	require 'php_script/functions.php';
-	//var_dump(get_questions());
  ?>
 <!DOCTYPE html>
 <html lang='ru'>
@@ -8,9 +7,9 @@
 	<!--кодировка-->
 	<meta charset="UTF-8">
 	<!--размер страницы под устройства-->
-	<meta name="viewport" content="width=device-width",initial-scale=1.0">
+	<meta name="viewport" content="width=device-width",initial-scale="1.0">
 	<!--для браузера edge и ie-->
-	<meta http-equiv="X-UA-Compatitable content="ie=edge">
+	<meta http-equiv="X-UA-Compatitable content="ie="edge">
 	<link rel="stylesheet" href="css/style.css">
 	<title>Online Tester</title>
 </head>
@@ -25,17 +24,12 @@
     del_test();
     del_students();
     del_groups();
+    del_results();
+    del_current_result()
 	?>
 	<div class="content">
-		<header>
-			<h1 class="logo">Online Tester</h1>
-			<nav class="header-right">
-				<a class="text-dark" href="index.php">Главная</a>
-				<a class="text-dark" href="#">Возможности</a>
-				<a class="text-dark" href="#">Авторы</a>
-			</nav>
-				<a class="btn" onclick="show_popup()">Войти</a>
-		</header>
+    <!-- header -->
+		<?php require 'header.php'; ?>
 
 		<div class="main">
 			<div class="sidebar-section">
@@ -241,15 +235,16 @@
                 <div class="cp-record">
                   <div class="cp-record-text">
                     <?php $group = get_student_group($students[$i]["team_id"]) ?>
-                    <?php echo "{$students[$i]["second_name"]} {$students[$i]["name"]} {$group['name']}"?>
+                    <?php echo "{$students[$i]["second_name"]} {$students[$i]["name"]}"?>
                   </div>
-                  <div>
-                    <a href="?del_u=<?=$students[$i]["id"]?>">
-                      <div class="cp-btn">
-                        Удалить
-                      </div>
-                    </a>
+                  <div class="cp-record-sidetext">
+                    <?php echo $group['name']?>
                   </div>
+                  <a href="?del_u=<?=$students[$i]["id"]?>">
+                    <div class="cp-btn">
+                      Удалить
+                    </div>
+                  </a>
                 </div>
               <?php endfor; ?>
             </div>
@@ -337,22 +332,104 @@
   					<div class="cp-content-header">
   						Результаты
   					</div>
+            <div class="cp-content-main">
+              <?php
+                $res = get_results();
+                if (count($res) == 0) echo "Записей не обнаружено"; ?>
+              <div class="cp-record cp-record-title">
+                <div class="cp-record-text">
+                  Тестируемый
+                </div>
+                <div class="cp-record-sidetext">
+                  Группа
+                </div>
+                <div class="cp-record-sidetext">
+                  Результат
+                </div>
+                <div class="cp-record-sidetext">
+                  Действия
+                </div>
+              </div>
+              <!--records-->
+              <?php for($i = 0;$i<count($res);$i++): ?>
+                <div class="cp-record">
+                  <div class="cp-record-text">
+                      <?php echo "{$res[$i]["second_name"]} {$res[$i]["name"]}"?>
+                  </div>
+                  <div class="cp-record-sidetext">
+                    <?php echo $res[$i]["team"]?>
+                  </div>
+                  <div class="cp-record-sidetext">
+                    <?php echo "{$res[$i]["points"]} баллов"?>
+                  </div>
+                  <a href="?edit_r=<?=$res[$i]["stud_id"]?>">
+                    <div class="cp-btn">
+                      Открыть
+                    </div>
+                  </a>
+                  &nbsp;
+                  <a href="?del_r=<?=$res[$i]["stud_id"]?>">
+                    <div class="cp-btn">
+                      Удалить
+                    </div>
+                  </a>
+                </div>
+              <?php endfor; ?>
+            </div>
   				</div>
+
+          <!-- editor results -->
+  				<div class="cp-content" id="editor_results">
+  					<div class="cp-content-header">
+  						Результаты
+              <div class="cp-btn" onclick="switch_page(5)">
+                Назад
+              </div>
+  					</div>
+            <div class="cp-content-main">
+              <?php
+                $res = get_current_result();
+                if (count($res) == 0) echo "Записей не обнаружено";
+                else { ?>
+              <div class="cp-record cp-record-title">
+                <div class="cp-record-text">
+                  Вопрос
+                </div>
+                <div class="cp-record-sidetext"></div>
+                <div class="cp-record-sidetext">
+                  Баллы
+                </div>
+                <div class="cp-record-sidetext"></div>
+              </div>
+            <?php } ?>
+              <!--records-->
+              <?php for($i = 0;$i<count($res);$i++): ?>
+                <div class="cp-record">
+                  <div class="cp-record-text">
+                      <?php echo $res[$i]["name"]?>
+                  </div>
+                  <div class="cp-record-sidetext">
+                    <?php echo "{$res[$i]["weight"]} баллов"?>
+                  </div>
+                  <a href="?del_cr=<?=$res[$i]["id"]?>">
+                    <div class="cp-btn">
+                      Удалить
+                    </div>
+                  </a>
+                </div>
+              <?php endfor; ?>
+            </div>
+  				</div>
+
         </div>
 
 			</div>
 		</div>
 	</div>
 
-  <footer>
-    <div class="footer-text">
-    <p class="footer-right">
-      <a class="text-dark" href="#top">Наверх</a>
-    </p>
-    <p>Система онлайн-тестирования Online Tester<br>
-      Лф ПНИПУ ЭВТ-17-1б 2020г.</p>
-    </div>
-  </footer>
+  <!--Footer-->
+	<?php require 'footer.php'; ?>
+
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

@@ -50,6 +50,7 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_newquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(tests);
         break;
       case 2:
@@ -57,6 +58,7 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_newquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(editor_newtest);
         break;
       case 3:
@@ -64,6 +66,7 @@ function switch_page(n) {
         close_page(tests); close_page(groups); close_page(results);
         close_page(editor_newquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(users);
         break;
       case 4:
@@ -71,6 +74,7 @@ function switch_page(n) {
         close_page(users); close_page(tests); close_page(results);
         close_page(editor_newquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(groups);
         break;
       case 5:
@@ -78,6 +82,7 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(tests);
         close_page(editor_newquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(results);
         break;
       case 6:
@@ -85,6 +90,7 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_newquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(editor_edittest);
         break;
       case 7:
@@ -92,6 +98,7 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_newquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(editor_editquestion);
         break;
       case 8:
@@ -99,6 +106,7 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_editquestion); close_page(editor_newanswer);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(editor_newquestion);
         break;
       case 9:
@@ -106,6 +114,7 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_editquestion); close_page(editor_newquestion);
         close_page(editor_newuser); close_page(editor_newgroup);
+        close_page(editor_results);
         show_page(editor_newanswer);
         break;
       case 10:
@@ -113,6 +122,8 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_editquestion); close_page(editor_newquestion);
         close_page(editor_newanswer); close_page(editor_newgroup);
+        close_page(editor_results);
+        close_page(editor_results);
         show_page(editor_newuser);
         break;
       case 11:
@@ -120,7 +131,16 @@ function switch_page(n) {
         close_page(users); close_page(groups); close_page(results);
         close_page(editor_editquestion); close_page(editor_newquestion);
         close_page(editor_newanswer); close_page(editor_newuser);
+        close_page(editor_results);
         show_page(editor_newgroup);
+        break;
+      case 12:
+        close_page(editor_newtest); close_page(editor_edittest); close_page(tests);
+        close_page(users); close_page(groups); close_page(results);
+        close_page(editor_editquestion); close_page(editor_newquestion);
+        close_page(editor_newanswer); close_page(editor_newuser);
+        close_page(editor_newgroup);
+        show_page(editor_results);
         break;
       default:
         close_page(editor_newtest); close_page(editor_edittest); close_page(editor_editquestion);
@@ -162,13 +182,16 @@ function js_getParam() {
       case 'edit_q': switch_page(7); break;
       case 'edit_u': switch_page(3); break;
       case 'edit_g': switch_page(4); break;
+      case 'edit_r': switch_page(12); break;
 
       case 'del_t': switch_page(1); break;
       case 'del_q': switch_page(6); break;
       case 'del_a': switch_page(7); break;
       case 'del_u': switch_page(3); break;
       case 'del_g': switch_page(4); break;
-
+      case 'del_r': switch_page(5); break;
+      case 'del_cr': switch_page(12); break;
+      
       case 'new_t': switch_page(2); break;
       case 'new_q': switch_page(8); break;
       case 'new_a': switch_page(9); break;
