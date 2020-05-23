@@ -21,7 +21,7 @@
 			setcookie('student', $user['email'], time() + 3600 * 24, "/");
 			setcookie('studid', $user['id'], time() + 3600 * 24, "/");
 			$mysql->close();
-			header('Location: /');
+			header('Location: /testpanel.php');
 		}
 	}	else { //вход для тестирирующего
 		setcookie('user', $user['email'], time() + 3600 * 24, "/");

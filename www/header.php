@@ -2,7 +2,7 @@
   <h1 class="logo" onclick="location.href='index.php'">Online Tester</h1>
   <nav class="header-right">
     <a class="text-dark" href="index.php">Главная</a>
-    <a class="text-dark" href="#">Возможности</a>
+    <a class="text-dark" href="about.php">Возможности</a>
     <a class="text-dark" href="#">Авторы</a>
   </nav>
 

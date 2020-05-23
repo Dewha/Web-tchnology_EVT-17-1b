@@ -20,15 +20,26 @@ function close_popup() {
   setTimeout(()=>{ form.style.display = 'none'; }, 100);
 }
 
-/** Control-panel **/
-var tests = document.getElementById('tests');
-var editor_newtest = document.getElementById('editor_newtest');
-var editor_edittest = document.getElementById('editor_edittest');
-var editor_editquestion = document.getElementById('editor_editquestion');
-var users = document.getElementById('users');
-var groups = document.getElementById('groups');
-var results = document.getElementById('results');
+/** Control/test-panel **/
+var doc = document;
+var tests = doc.getElementById('tests');
+var editor_newtest = doc.getElementById('editor_newtest');
+var editor_edittest = doc.getElementById('editor_edittest');
+var editor_editquestion = doc.getElementById('editor_editquestion');
+var editor_newquestion = doc.getElementById('editor_newquestion');
+var editor_newanswer = doc.getElementById('editor_newanswer');
+var editor_newuser = doc.getElementById('editor_newuser');
+var editor_newgroup = doc.getElementById('editor_newgroup');
+var editor_results = doc.getElementById('editor_results');
+var users = doc.getElementById('users');
+var groups = doc.getElementById('groups');
+var results = doc.getElementById('results');
+var testlist = doc.getElementById('testlist');
+var opentest = doc.getElementById('opentest');
+var starttest = doc.getElementById('starttest');
+var endtest = doc.getElementById('endtest');
 var p_stage = 1;
+var p_stage_tp = 1;
 
 var show_page = function(pg) {
   setTimeout(()=>{ pg.style.display = 'flex';
@@ -191,7 +202,7 @@ function js_getParam() {
       case 'del_g': switch_page(4); break;
       case 'del_r': switch_page(5); break;
       case 'del_cr': switch_page(12); break;
-      
+
       case 'new_t': switch_page(2); break;
       case 'new_q': switch_page(8); break;
       case 'new_a': switch_page(9); break;
@@ -202,8 +213,28 @@ function js_getParam() {
     console.log(lastGET+'='+$_GET(lastGET));
 }
 
-function add_new_answer() {
-  var doc = document;
-      elem = doc.createElement("div");
+function js_getParamTP() {
+  var getArr = $_GET_ARR();
+  var lastGET;
+  for (var x in getArr) {
+    lastGET = x;
+  }
+  switch (x) {
+    case 'test': switch_page_tp(2); break;
+    case 'question': switch_page_tp(3); break;
+    case 'end': switch_page_tp(4); break;
+    default: break;
+  }
+    console.log(lastGET+'='+$_GET(lastGET));
+}
 
+function switch_page_tp(n) {
+  if (p_stage_tp != n) {
+    switch (n) {
+      case 1: close_page(opentest); close_page(starttest); close_page(endtest); show_page(testlist); break;
+      case 2: close_page(testlist); close_page(starttest); close_page(endtest); show_page(opentest); break;
+      case 3: close_page(opentest); close_page(testlist); close_page(endtest); show_page(starttest); break;
+      case 4: close_page(opentest); close_page(testlist); close_page(starttest); show_page(endtest); break;
+    }
+  }
 }

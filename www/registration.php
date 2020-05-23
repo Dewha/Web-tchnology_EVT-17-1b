@@ -13,6 +13,10 @@
     <div class="content">
       <!--Header-->
 			<?php require 'header.php'; ?>
+
+			<!--sign-in-->
+			<?php require 'signin.php'; ?>
+
         <!-- registration -->
         <div class="registration">
           <div class="reg-form">
@@ -29,7 +33,9 @@
           </div>
         </div>
     </div>
+		
 		<!--Footer-->
 		<?php require 'footer.php'; ?>
+		<script src="js\main.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>

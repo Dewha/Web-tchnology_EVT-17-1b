@@ -335,7 +335,8 @@
             <div class="cp-content-main">
               <?php
                 $res = get_results();
-                if (count($res) == 0) echo "Записей не обнаружено"; ?>
+                if (count($res) == 0) echo "Записей не обнаружено";
+                else { ?>
               <div class="cp-record cp-record-title">
                 <div class="cp-record-text">
                   Тестируемый
@@ -350,6 +351,7 @@
                   Действия
                 </div>
               </div>
+            <?php } ?>
               <!--records-->
               <?php for($i = 0;$i<count($res);$i++): ?>
                 <div class="cp-record">
@@ -409,7 +411,7 @@
                       <?php echo $res[$i]["name"]?>
                   </div>
                   <div class="cp-record-sidetext">
-                    <?php echo "{$res[$i]["weight"]} баллов"?>
+                    <?php echo "{$res[$i]["points"]} баллов"?>
                   </div>
                   <a href="?del_cr=<?=$res[$i]["id"]?>">
                     <div class="cp-btn">
@@ -429,7 +431,6 @@
 
   <!--Footer-->
 	<?php require 'footer.php'; ?>
-
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

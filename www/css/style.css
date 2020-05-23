@@ -291,7 +291,7 @@ footer {
   }
 }
 
-/* control panel */
+/* about */
 .panel {
 	max-width: 1150px;
 	margin: 20px auto;
@@ -314,13 +314,9 @@ footer {
 	min-width: 300px;
 	padding: 10px 20px;
 	background-color: #fff;
+	cursor: default;
 	box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 	border-radius: 5px;
-}
-
-.card:hover {
-	background-color: lightgray;
-	cursor: pointer;
 }
 
 .card-header {
@@ -330,10 +326,7 @@ footer {
 	box-shadow: 0 10px 10px -10px rgba(0, 0, 0, .2)
 }
 
-.card-text {
-	padding-top: 20px;
-}
-
+/* control/test panel */
 .main {
 	display: flex;
 	margin: 40px auto;
@@ -416,6 +409,18 @@ footer {
 	display: none;
 }
 #results {
+	display: none;
+}
+#testlist {
+	display: flex;
+}
+#opentest {
+	display: none;
+}
+#starttest {
+	display: none;
+}
+#endtest {
 	display: none;
 }
 
