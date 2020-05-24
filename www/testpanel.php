@@ -11,6 +11,7 @@
 	<!--для браузера edge и ie-->
 	<meta http-equiv="X-UA-Compatitable content="ie="edge">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="img/question.ico" type="image/x-icon"/>
 	<title>Online Tester</title>
 </head>
 <body onload="js_getParamTP()">

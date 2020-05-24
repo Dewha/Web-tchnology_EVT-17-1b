@@ -3,7 +3,7 @@
   <nav class="header-right">
     <a class="text-dark" href="index.php">Главная</a>
     <a class="text-dark" href="about.php">Возможности</a>
-    <a class="text-dark" href="#">Авторы</a>
+    <a class="text-dark" href="authors.php">Авторы</a>
   </nav>
 
   <?php

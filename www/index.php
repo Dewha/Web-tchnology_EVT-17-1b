@@ -7,7 +7,8 @@
 	<meta name="viewport" content="width=device-width",initial-scale="1.0">
 	<!--для браузера edge и ie-->
 	<meta http-equiv="X-UA-Compatitable content="ie="edge">
-	<link rel="stylesheet" href="css\style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="img/question.ico" type="image/x-icon"/>
 	<title>Online Tester</title>
 </head>
 <body>
@@ -29,54 +30,46 @@
 			<h3 class="grid-header">Как это работает?</h3>
 			<div class="grid">
 				<div class="grid-content">
-					<img src="img\test.png" class="num">
+					<img src="img/1.png" class="num">
 					<div class="grid-text">
-						<h4>Шаг 1</h4>
-						<div>Lorem ipsum dolor sit amet,
-							consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							Duis aute irure dolor in reprehenderit in voluptate velit
-							esse cillum dolore eu fugiat nulla pariatur. Excepteur
-							sint occaecat cupidatat non proident, sunt in culpa qui
-							officia deserunt mollit anim id est laborum.</div>
+						<h3>Зарегистрируйтесь</h3>
+						<div>
+							Достачно указать Ваш емэйл, пароль и название организации.
+							Сразу после регистрации Вы попадете в кабинет администратора и сможете начать работать.
+							Система сразу готова к работе, не требуется скачивать и устанавливать какие-либо программы,
+							необходим только браузер и доступ в интернет. Онлайн сервис работает на компьютере, планшете и телефоне.
+						</div>
 					</div>
 				</div>
 				<div class="grid-content">
-					<img src="img\test.png" class="num">
+					<img src="img/2.png" class="num">
 					<div class="grid-text">
-						<h4>Шаг 2</h4>
-						<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-							deserunt mollit anim id est laborum.</div>
+						<h3>Создайте тест</h3>
+						<div>
+							Создайте и настройте свое тестирование. Заполните базу вопросов и ответов к ним.
+							Простой и удобный редактор позволяют составлять как простые тесты для проверки знаний,
+							так и сложные психологические тестирования.
+						</div>
 					</div>
 				</div>
 				<div class="grid-content">
-					<img src="img\test.png" class="num">
+					<img src="img/3.png" class="num">
 					<div class="grid-text">
-						<h4>Шаг 3</h4>
-						<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-							incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-							exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-							dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum.</div>
+						<h3>Добавьте пользователей</h3>
+						<div>
+							Зарегистрируйте Ващих тестируемых. Введите их email и пароль с помошью которых они войдут в систему.
+							У Вас нет ограничений по количеству пользователей, тестов и сеансов тестирований. Работайте без ограничений!
+						</div>
 					</div>
 				</div>
 				<div class="grid-content">
-					<img src="img\test.png" class="num">
+					<img src="img/4.png" class="num">
 					<div class="grid-text">
-						<h4>Шаг 4</h4>
-						<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-							in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-							occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+						<h3>Получайте результаты</h3>
+						<div>
+							Все результаты для Ваших тестов доступны в кабинете администратора.
+							Вы можете видеть детальную информацию, включая ответы на конкретные вопросы.
+						</div>
 					</div>
 				</div>
 			</div>

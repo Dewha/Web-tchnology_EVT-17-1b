@@ -103,7 +103,7 @@ if (isset($_POST['answered'])) { //ответ на вопрос
   $out = $mysql->query("SELECT * FROM `question` WHERE `id` = '{$_POST["question"]}';");
   $weight = $out->fetch_assoc();
   $f = false;
-  //ghjверка на правильность ответов
+  //проверка на правильность ответов
   if (count($selected)!=count($correct))
     $f = true;
   else {
@@ -116,7 +116,7 @@ if (isset($_POST['answered'])) { //ответ на вопрос
   }
   $points = $f ? 0 : $weight['weight'];
 
-  //добавление запись ответа
+  //запись ответа
   $mysql->query("INSERT INTO `results`(`user_id`, `stud_id`, `question_id`, `points`) VALUES
     ('{$user_id["user_id"]}', '{$_COOKIE["studid"]}', '{$_POST["question"]}', '$points');");
 

@@ -52,6 +52,13 @@ function get_answers() {
   return $questions;
 }
 
+function get_test_by_question() {
+  global $mysql;
+  $out = $mysql->query("SELECT * FROM `question` WHERE `id`='{$_GET['edit_q']}'") or die($mysql->error);
+  $test = $out->fetch_assoc();
+  return $test;
+}
+
 function del_answers() {
   if (isset($_GET['del_a'])) {
     global $mysql;

@@ -11,6 +11,7 @@
 	<!--для браузера edge и ie-->
 	<meta http-equiv="X-UA-Compatitable content="ie="edge">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="img/question.ico" type="image/x-icon"/>
 	<title>Online Tester</title>
 </head>
 <body onload="js_getParam()" >
@@ -158,11 +159,14 @@
           <!--editor answer-->
           <div class="cp-content" id="editor_editquestion">
             <div class="cp-content-header">
+              <?php $test = get_test_by_question(); ?>
               Редактор: ответы
               <div>
-                <div class="cp-btn" onclick="switch_page(6)">
-                  Назад
-                </div>
+                <a href="?edit_t=<?=$test['test_id']?>">
+                  <div class="cp-btn">
+                    Назад
+                  </div>
+                </a>
                 <a href="?new_a=<?=$_GET['edit_q']?>">
                   <div class="cp-btn">
                     Добавить ответ
